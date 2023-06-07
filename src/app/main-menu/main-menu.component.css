@@ -1,13 +1,65 @@
 .Background {
-    background: rgb(29,80,73);
-    background: linear-gradient(90deg, rgba(29,80,73,1) 0%, rgba(75,116,82,1) 50%, rgba(142,180,119,1) 100%);
+    background: #DCE1DB;
     height: 100vh;
     width: 100vw;
     margin: 0px;
     padding: 0px;
+    position: relative;
+    overflow: hidden;
 }
 
 .salad-image {
-    width: 1500px;
-    height: 1500px;
+    width: 600px;
+    height: 600px;
+    position: absolute;
+    top: 60%;
+    left: 30%;
+}
+
+.TopBar {
+    display: grid;
+    /* grid-template-columns:  70% 10% 10% 10%; */
+    grid-template-columns:  5fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 2% 3% 0px 3%;
+    gap: 20px;
+}
+
+.Boton {
+    border: 0px;
+    background-color: #DCE1DB;
+    font-family: 'Josefin Sans';
+    font-weight: 400;
+    font-size: 32px;
+    height: 60px;
+    padding: 0px;
+    width: max-content;
+}
+
+.Boton:hover{
+    cursor: pointer;
+    text-decoration:underline;
+}
+
+h1{
+    font-family: 'Josefin Sans';
+    font-weight: 400;
+    font-size: 128px;
+    margin: 0px;
+    padding: 0px;
+}
+
+h2{
+    font-family: 'Josefin Sans';
+    font-weight: 200;
+    font-size: 48px;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Titulos {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    margin-top: 14%;
 }
