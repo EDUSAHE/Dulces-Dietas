@@ -2,6 +2,7 @@ const { app, ipcMain, BrowserWindow } = require("electron");
 const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const pacientesControllers = require("./server/PacientesControllers");
+const citaControllers = require("./server/CitaControllers");
 
 let appWin;
 // const store = new Store();
@@ -16,7 +17,7 @@ createWindow = () => {
     appWin = new BrowserWindow({
         width: 800,
         height: 600,
-        title: "DulcesDietas",
+        title: "DulcesDietasP",
         resizable: true,
         webPreferences: {
             preload: `${app.getAppPath()}/preload.js`
@@ -50,6 +51,34 @@ app.on("window-all-closed", () => app.quit());
 app.on('before-quit', () => {
     db.close();
 });
+
+
+
+//Crear una cita
+const citaData = {
+    IdPaciente: 1,
+    Estatus: 'Pendiente2',
+    Fecha: '2023-06-15',
+    Hora: '09:00 AM'
+  };
+  
+  citaControllers.createCita(db, citaData, (err) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log('Cita creada exitosamente');
+    }
+  });
+
+  //Listar Citas 
+  citaControllers.listCitas(db, (err, citas) => {
+    if (err) {
+      console.error(err.message);
+    } else {
+      console.log('Lista de todas las citas:');
+      console.log(citas);
+    }
+  });
 
 ipcMain.on("DataBase", (event, message) => {
     if(message==="ListPacientes")
