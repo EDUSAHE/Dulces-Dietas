@@ -3,6 +3,21 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 const pacientesControllers = require("./server/PacientesControllers");
 const citaControllers = require("./server/CitaControllers");
+const historialClinicoControllers = require("./server/HistorialClinicoControllers");
+const aceitesygrasasControllers = require("./server/AceitesyGrasasControllers");
+const AlimentoLibreControllers = require("./server/AlimentoLibreControllers");
+const AzucaresControllers = require("./server/AzucaresControllers");
+const BebidasAlcoholicasControllers = require("./server/BebidasAlcoholicasControllers");
+const CerealesControllers = require("./server/CerealesControllers");
+const FrutasControllers = require("./server/FrutasControllers");
+const LecheControllers = require("./server/LecheControllers");
+const LeguminosasControllers = require("./server/LeguminosasControllers");
+const OrigenAnimalControllers = require("./server/OrigenAnimalControllers");
+const VerdurasControllers = require("./server/VerdurasControllers");
+
+
+
+
 
 let appWin;
 // const store = new Store();
@@ -52,33 +67,6 @@ app.on('before-quit', () => {
     db.close();
 });
 
-
-
-//Crear una cita
-const citaData = {
-    IdPaciente: 1,
-    Estatus: 'Pendiente2',
-    Fecha: '2023-06-15',
-    Hora: '09:00 AM'
-  };
-  
-  citaControllers.createCita(db, citaData, (err) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log('Cita creada exitosamente');
-    }
-  });
-
-  //Listar Citas 
-  citaControllers.listCitas(db, (err, citas) => {
-    if (err) {
-      console.error(err.message);
-    } else {
-      console.log('Lista de todas las citas:');
-      console.log(citas);
-    }
-  });
 
 ipcMain.on("DataBase", (event, message) => {
     if(message==="ListPacientes")
