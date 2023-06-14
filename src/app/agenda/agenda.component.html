@@ -1,1 +1,75 @@
-<p>agenda works!</p>
+<div class="Background">
+  <div class="TopBar">
+    <button class="Boton" type="button">
+      <img src="assets/Images/Logo.svg" alt="Logo" />
+    </button>
+  </div>
+
+    <h3 class="Titulo">
+      {{ viewDate | calendarDate : view + "ViewTitle" : "es" }}
+    </h3>
+
+    <button class="btn" (click)="openModal(newEventModal)">
+        Agregar
+      </button>
+      <button class="btn" (click)="changeToDayView()">Cambiar a vista de día</button>
+
+      <button class="btn" (click)="changeToMonthView()" *ngIf="isDayView">Cambiar a vista de mes</button>
+      <button class="btn" (click)="prev()" *ngIf="!isDayView">Anterior</button>
+      <button class="btn" (click)="next()" *ngIf="!isDayView">Siguiente</button>
+      <mwl-calendar-month-view
+    *ngIf="!isDayView"
+    [viewDate]="viewDate"
+    [events]="events"
+    class="TituloMes"
+    [locale]="locale"
+  ></mwl-calendar-month-view>
+
+  <mwl-calendar-day-view
+    *ngIf="isDayView"
+    [viewDate]="viewDate"
+    [events]="events"
+    class="TituloDia my-custom-class"
+    [locale]="locale"
+  ></mwl-calendar-day-view>
+  
+      
+   
+
+    <ng-template #newEventModal let-modal>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h3 class="modal-title">Agregar Evento</h3>
+            </div>
+            <div class="modal-body">
+              <label for="eventTitle">Título:</label>
+              <select id="eventTitle" [(ngModel)]="newEventTitle">
+                <option *ngFor="let paciente of Pacientes" [value]="paciente.Nombre + ' ' + paciente.Apellidos">{{ paciente.Nombre }} {{ paciente.Apellidos }}</option>
+              </select>
+              <br>
+              <label for="eventStart">Fecha y Hora de Inicio:</label>
+              <input id="eventStart" type="datetime-local" class="form-control" [(ngModel)]="newEventStart" />
+    
+              <label for="eventEnd">Fecha y Hora de Fin:</label>
+              <input id="eventEnd" type="datetime-local" class="form-control" [(ngModel)]="newEventEnd" />
+              <br>
+              <label for="eventStatus">Estado:</label>
+              <select id="eventStatus"[(ngModel)]="newEventStatus">
+                <option value="confirmado">Confirmado</option>
+                <option value="pendiente">Pendiente</option>
+                <option value="cancelado">Cancelado</option>
+              </select>
+            </div>
+            <div class="modal-footer">
+              <button class="btn btn-primary" (click)="agregarEvento(); modal.close()">Guardar</button>
+              <button class="btn btn-secondary" (click)="modal.dismiss()">Cancelar</button>
+            </div>
+          </div>
+        </div>
+      </ng-template>
+</div>
+<link
+  rel="stylesheet"
+  href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap"
+/>

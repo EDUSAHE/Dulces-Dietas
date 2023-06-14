@@ -16,4 +16,8 @@ export class MainMenuComponent implements OnInit {
     this.router.navigate(['/Pacientes'])
   }
 
+  GoAgenda(){
+    this.router.navigate(['/Agenda'])
+  }
+
 }

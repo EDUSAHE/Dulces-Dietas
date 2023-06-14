@@ -1,0 +1,78 @@
+.Background {
+    background: #DCE1DB;
+    height: 100vh;
+    width: 100vw;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+    overflow-y: auto;
+}
+
+.TopBar {
+    display: grid;
+    /* grid-template-columns:  70% 10% 10% 10%; */
+    grid-template-columns:  5fr 1fr 1fr 1fr;
+    align-items: center;
+    padding: 2% 3% 0px 3%;
+    gap: 20px;
+}
+
+.Boton {
+    border: 0px;
+    background-color: #DCE1DB;
+    font-family: 'Josefin Sans';
+    font-weight: 400;
+    font-size: 32px;
+    height: 60px;
+    padding: 0px;
+    width: max-content;
+}
+
+.TituloMes{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+    text-transform: capitalize;
+    grid-column: span 2; /* El nuevo elemento ocupa 2 columnas del grid */
+    margin: 0 3%;
+    
+}
+
+.Titulo{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: normal;
+    text-transform: capitalize;
+    font-size: 24px;
+}
+
+.btn{
+    background-color: #9FB884; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    opacity: .8;
+    border-radius: 8px;
+}
+
+.con1{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+
+.modal-dialog {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 20px);
+  }
+
+  .my-custom-class {
+    width: 600px;
+  }
+  
